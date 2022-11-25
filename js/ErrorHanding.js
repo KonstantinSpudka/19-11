@@ -43,3 +43,73 @@ try {
 }
 
 console.log("arter error");
+
+// Task: написати функцію для валідації імені користувача (4-32, string)
+// якщо значення валідне, то повернути його
+// якщо ні, то згенерувати помилку
+
+function validateName(value) {
+  if (typeof value !== "string") {
+    throw new TypeError("name must be string");
+  }
+  if (value.length < 4 || value.length > 32) {
+    throw new RangeError("name must be 4-32 characters");
+  }
+  return value;
+}
+
+try {
+  const validatedName = validateName("Test");
+} catch (error) {
+  if (error instanceof TypeError) {
+    console.log("name must be");
+  } else if (error instanceof RangeError) {
+    console.log("error");
+  } else {
+    console.log("error");
+  }
+}
+
+// Task: Реалізувати функцію, яка приймає вік,
+// повертає вік, якщо параметр відповідає вимогам,
+// інакше генерує помилку
+
+function validateAge(value) {
+  if (typeof value !== "number") {
+    throw new TypeError("age must be a number");
+  }
+  if (value < 0 || value > 150 || !Number.isSafeInteger(value)) {
+    throw new RangeError(
+      "Age must be bigger than 0 but smaller than 150 and it must be integer value."
+    );
+  }
+  return value;
+}
+
+try {
+  const validatedAge = validateAge(3.5);
+  console.log("validatedAge :>> ", validatedAge);
+} catch (error) {
+  if (error instanceof TypeError) {
+    console.log("error : ", error);
+  } else if (error instanceof RangeError) {
+    console.log("error : ", error);
+  } else {
+    console.log("something went wrong.");
+  }
+}
+
+function f(name = "anonumus", title = "pan", phone = "+380505441243") {
+  // const name = params.name;
+  // const title = params.title;
+  // const phone = params.phone;
+
+  // диструктоване присвоювання
+  const { name, title, phone } = params;
+
+  console.log("in f :>> ", name);
+  console.log("in f :>> ", title);
+  console.log("in f :>> ", phone);
+}
+
+f({ name: "Ivo", title: "pan", phone: "+380508888888" });
