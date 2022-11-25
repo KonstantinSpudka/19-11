@@ -98,18 +98,3 @@ try {
     console.log("something went wrong.");
   }
 }
-
-function f(name = "anonumus", title = "pan", phone = "+380505441243") {
-  // const name = params.name;
-  // const title = params.title;
-  // const phone = params.phone;
-
-  // диструктоване присвоювання
-  const { name, title, phone } = params;
-
-  console.log("in f :>> ", name);
-  console.log("in f :>> ", title);
-  console.log("in f :>> ", phone);
-}
-
-f({ name: "Ivo", title: "pan", phone: "+380508888888" });
